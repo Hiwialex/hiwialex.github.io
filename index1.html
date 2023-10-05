@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charcet="utf-8">
+        <meta name="viewpoint" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,300&family=Poppins:wght@200;500&display=swap" rel="stylesheet">
+
+        
+        
+        <style>
+*{
+	font-family: poppins;
+}
+#output{
+	font-size: 48px;
+}
+	main{
+		background-color: #fab22e;
+		width: 700px;
+		margin-left: 25%;
+margin-top: 5%;
+border-radius: 20px;
+	}
+	body	{
+
+
+	}
+	div{
+		margin-left: 45%;
+		
+	}
+	#headBtn{
+		background-color: black;
+		color: white;
+color: white;
+border: none;
+width: 150px;
+height: 100px;
+font-size: 36px;
+}
+#headBtn:hover{
+	color: black;
+	background-color: white;
+transition: 3s;
+}
+button{
+	display: inline;
+	}
+#tossBtn{
+		background-color: #ab2424;
+		color: white;
+color: white;
+border: none;
+width: 150px;
+height: 100px;
+font-size: 36px;
+}
+#tossBtn:hover{
+	color: black;
+	background-color: white;
+transition: 3s;
+}
+#tailBtn{
+		background-color: #779974;
+		color: white;
+color: white;
+border: none;
+width: 150px;
+height: 100px;
+font-size: 36px;
+}
+#tailBtn:hover{
+	color: black;
+	background-color: white;
+transition: 3s;
+}
+#tailBtn{
+	margin-left: -25px;
+}
+#headBtn{
+	margin-left: -85px;
+}
+
+            .firework {
+                /* "firework.gif" */
+                animation: fireworks 3s infinite;
+            }
+            
+            .explosion {
+                /* "granite-explosion.gif" */
+                animation: explode 2s;
+            }
+            @keyframes fireworks {
+            0% { background-color: yellow; }
+            50% { background-color: orange; }
+            50% { background-color: pink; }
+            50% { background-color: green; }
+            50% { background-color: blue; }
+            100% { background-color: red; }
+            /* "firework.gif" */}
+
+            @keyframes explode {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(2); opacity: 0; }
+            /* "granite-explosion.gif" */}
+        </style>
+    </head>
+
+    <body>
+        <main>
+        <h1 Style= "text-align: center;"> Tossing a Coin </h1>
+
+
+        <h2 Style= "text-align: center;"> Give it a shot! 😉</h2>
+
+
+        <h3 id ="output" Style= "text-align: center;"></h3>
+       
+
+        <div><button id="headBtn">Head</button>
+        <button id="tailBtn">Tail</button>
+
+        <br><br>
+        <button id="tossBtn">Toss Coin</button>
+	</div>
+        <script>
+            // Function to generate random outcome (head or tail)
+            function tossCoin() {
+            var outcome = Math.random() < 0.5 ? 'head' : 'tail';
+            return outcome;
+            }
+
+            // Function to check if player's guess matches the outcome
+            function checkGuess(guess, outcome) {
+            if (guess === outcome) {
+                document.getElementById('output').innerHTML = "Yeah you won!";
+                document.body.style.backgroundImage="url('bk.avif')";
+                setTimeout(function() {
+                    document.body.classList.remove('firework');
+                }, 2000);
+            } else {
+                document.getElementById('output').innerHTML = "Oh no, you lose!";
+                document.body.style.backgroundImage="url('granite-explosion.gif')";
+                setTimeout(function() {
+                    document.body.classList.remove('explosion');
+                }, 1000);
+            }
+            }
+
+            // Event listener for head button
+            document.getElementById('headBtn').addEventListener('click', function() {
+            checkGuess('head', tossCoin());
+            });
+
+            // Event listener for tail button
+            document.getElementById('tailBtn').addEventListener('click', function() {
+            checkGuess('tail', tossCoin());
+            });
+        </script>
+
+
+        <p id="result"></p>
+
+        </main>
+    </body>      
+</html>
